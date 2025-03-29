@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+SplitEnumerator -> SplitEnumerator: start（可以使用现成SplitEnumeratorContext的\ncallAsync方法启动定时任务）
+SourceReader -> SourceReader: start（启动）
+SourceReader -> SourceReader: isAvailable（如果自己空闲的话，则通过\nSourceReaderContext的sendSplitRequest方法\n通知分片枚举器（SplitEnumerator）自己空闲）
+SourceReader --> SplitEnumerator: handleSplitRequest（监听来自\n空闲的源阅读器（SourceReader），\n将它们加入到空闲列表，下次可以分配任务）
+SplitEnumerator -> SplitEnumerator: 不断调用定时任务callAsync的第一个方法：读取数据
+SplitEnumerator -> SplitEnumerator: 定时任务读到数据，则调用callAsync的第二个方法：进行分片
+SplitEnumerator -> SplitEnumerator: 将分片后的数据通过SplitEnumeratorContext的assignSplit方法\n分配给源阅读器（SourceReader）
+SplitEnumerator -> SourceReader: addSplits监听来自SplitEnumeratorContext的assignSplit方法\n分配的数据，添加到自己的待处理列表中
+SourceReader -> SourceReader: 不断调用pollNext判断是否有未处理数据，\n如果有，则处理数据
+
+@enduml
