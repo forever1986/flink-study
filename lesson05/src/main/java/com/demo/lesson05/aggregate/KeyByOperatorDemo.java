@@ -1,8 +1,8 @@
 package com.demo.lesson05.aggregate;
 
 import org.apache.flink.api.java.functions.KeySelector;
-import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
+import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
@@ -17,7 +17,7 @@ public class KeyByOperatorDemo {
         // 2. 读取数据
         DataStreamSource<String> text = env.socketTextStream("127.0.0.1", 9999);
         // 3. 计算
-        DataStream<String> keyBy = text.keyBy(new KeySelectorFunction());
+        KeyedStream<String, String> keyBy = text.keyBy(new KeySelectorFunction());
         // 4. 输出-设置print算子的并行度为2
         keyBy.print().setParallelism(2);
         // 执行
