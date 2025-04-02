@@ -1,0 +1,59 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface Function
+interface MapFunction
+interface FlatMapFunction
+interface FilterFunction
+interface RichFunction
+abstract AbstractRichFunction
+class RichMapFunction
+class RichFlatMapFunction
+class RichFilterFunction
+
+abstract ProcessFunction
+abstract CoProcessFunction
+
+interface KeySelector
+interface ReduceFunction
+abstract AggregationFunction
+
+interface CoMapFunction
+interface CoFlatMapFunction
+abstract KeyedProcessFunction
+abstract ProcessWindowFunction
+abstract ProcessAllWindowFunction
+abstract ProcessJoinFunction
+abstract BaseBroadcastProcessFunction
+abstract BroadcastProcessFunction
+abstract KeyedBroadcastProcessFunction
+
+
+Function <|-- RichFunction
+Function <|-- MapFunction
+Function <|-- FlatMapFunction
+Function <|-- FilterFunction
+RichFunction <|.. AbstractRichFunction
+AbstractRichFunction <|-- RichMapFunction
+AbstractRichFunction <|-- RichFlatMapFunction
+AbstractRichFunction <|-- RichFilterFunction
+
+AbstractRichFunction <|-- ProcessFunction
+AbstractRichFunction <|-- CoProcessFunction
+AbstractRichFunction <|-- KeyedProcessFunction
+AbstractRichFunction <|-- ProcessWindowFunction
+AbstractRichFunction <|--ProcessAllWindowFunction
+AbstractRichFunction <|--ProcessJoinFunction
+AbstractRichFunction <|--BaseBroadcastProcessFunction
+BaseBroadcastProcessFunction <|--BroadcastProcessFunction
+BaseBroadcastProcessFunction <|--KeyedBroadcastProcessFunction
+
+Function <|-- KeySelector
+Function <|-- ReduceFunction
+ReduceFunction <|.. AggregationFunction
+Function <|-- CoMapFunction
+Function <|-- CoFlatMapFunction
+
+
+@enduml

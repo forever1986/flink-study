@@ -1,4 +1,4 @@
-package com.demo.lesson05.stream;
+package com.demo.lesson05.process;
 
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.tuple.Tuple3;
@@ -14,7 +14,7 @@ import org.apache.flink.util.Collector;
 /**
  * 假设是监听来自多个服务器cpu的日志，日志格式有2种，一种是“服务器id,cpu,时间”，一种是“服务器id,cpu,内存,磁盘容量,时间”，我们合并成一条流，只取其中“服务器id,cpu,时间”,并打印
  */
-public class ConnectStreamDemo {
+public class CoProcessFunctionDemo {
 
     public static void main(String[] args) throws Exception {
         // 1. 创建执行环境
