@@ -14,6 +14,10 @@
         <module>lesson03</module>
         <module>lesson04</module>
         <module>lesson05</module>
+        <module>lesson06</module>
+        <module>lesson07</module>
+        <module>lesson08</module>
+        <module>lesson09</module>
     </modules>
 
     <properties>
@@ -26,6 +30,10 @@
         <flink-connector-mongodb-cdc.version>3.3.0</flink-connector-mongodb-cdc.version>
         <hutool.version>5.7.21</hutool.version>
         <fastjson.version>1.2.83</fastjson.version>
+        <flink-connector-jdbc.version>3.2.0-1.19</flink-connector-jdbc.version>
+        <mysql-connector-java.version>8.0.30</mysql-connector-java.version>
+        <mysql-connector-redis.version>1.0</mysql-connector-redis.version>
+        <minio.version>8.5.2</minio.version>
     </properties>
 
     <dependencyManagement>
@@ -83,6 +91,33 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+            <!-- 引入flink的jdbc连接器 -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-jdbc</artifactId>
+                <!-- 版本是3.2.0-1.19 -->
+                <version>${flink-connector-jdbc.version}</version>
+            </dependency>
+            <!-- 引入mysql的驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <!-- 版本是8.0.30-->
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <!-- 引入bahir的redis连接器 -->
+            <dependency>
+                <groupId>org.apache.bahir</groupId>
+                <artifactId>flink-connector-redis_2.11</artifactId>
+                <!-- 版本是1.0-->
+                <version>${mysql-connector-redis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <!-- 版本是8.5.2-->
+                <version>${minio.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
