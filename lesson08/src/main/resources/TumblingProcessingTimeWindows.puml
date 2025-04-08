@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+WindowedStream -> WindowAssigner: assignWindows 开启窗口
+WindowAssigner -> Window: 根据规则创建一个窗口
+Window --> WindowAssigner: 返回窗口
+WindowAssigner -> Trigger: getDefaultTrigger 创建一个触发器
+Trigger -> Trigger: 定时触发
+Trigger -> Evictor: evictBefore 触发器触发之前，会调用移除器
+Evictor -> Function: window的计算，可能是reduce、aggregate或process
+Function -> Evictor: evictAfter 触发器触发之后，会调用移除器
+Evictor  --> WindowedStream: 关闭窗口
+
+@enduml

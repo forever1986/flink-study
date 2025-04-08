@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Evictor
+
+Evictor <|-- TimeEvictor
+Evictor <|-- CountEvictor
+Evictor <|-- DeltaEvictor
+
+
+@enduml
