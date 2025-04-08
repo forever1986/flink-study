@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class TypeInformation
+class BasicTypeInfo
+class BasicArrayTypeInfo
+class CompositeType
+class TupleTypeInfo
+class RowTypeInfo
+class PojoTypeInfo
+class ListTypeInfo
+class MapTypeInfo
+class GenericTypeInfo
+class NumericTypeInfo
+class IntegerTypeInfo
+class FractionalTypeInfo
+class 其它
+
+TypeInformation <|-- BasicTypeInfo
+BasicTypeInfo <|-- NumericTypeInfo
+NumericTypeInfo <|-- IntegerTypeInfo
+NumericTypeInfo <|-- FractionalTypeInfo
+TypeInformation <|-- BasicArrayTypeInfo
+TypeInformation <|-- CompositeType
+CompositeType <|-- TupleTypeInfo
+CompositeType <|-- RowTypeInfo
+CompositeType <|-- PojoTypeInfo
+TypeInformation <|-- ListTypeInfo
+TypeInformation <|-- MapTypeInfo
+TypeInformation <|-- GenericTypeInfo
+TypeInformation <|-- 其它
+
+
+
+
+@enduml
