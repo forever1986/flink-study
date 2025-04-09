@@ -1,4 +1,4 @@
-package com.demo.lesson09.parallelism;
+package com.demo.lesson09.strategy;
 
 import com.demo.lesson09.util.KeySelectorFunction;
 import com.demo.lesson09.util.ServerInfo;
