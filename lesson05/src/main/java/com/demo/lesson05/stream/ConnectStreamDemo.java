@@ -26,7 +26,7 @@ public class ConnectStreamDemo {
         DataStreamSource<Tuple5<String,Double,Double,Double,Long>> server2Source = env.fromData(
                 new Tuple5<>("server2", 6.9, 50.9, 80.5, 1L),
                 new Tuple5<>("server2", 33.2, 70.5, 67.4, 2L));
-        // 3. 通过union合并流，注意输出的是ConnectedStreams流
+        // 3. 通过connect合并流，注意输出的是ConnectedStreams流
         ConnectedStreams<Tuple3<String, Double, Long>, Tuple5<String, Double, Double, Double, Long>> connect = server1Source.connect(server2Source);
         connect.keyBy(
                 new KeySelector<Tuple3<String, Double, Long>, String>() {
