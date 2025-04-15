@@ -19,6 +19,7 @@
         <module>lesson08</module>
         <module>lesson09</module>
         <module>lesson10</module>
+        <module>lesson11</module>
     </modules>
 
     <properties>
@@ -119,6 +120,11 @@
                 <artifactId>minio</artifactId>
                 <!-- 版本是8.5.2-->
                 <version>${minio.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-statebackend-rocksdb</artifactId>
+                <version>${flink.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

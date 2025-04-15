@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface State
+interface ValueState<T>
+interface ListState<T>
+interface MapState<UK, UV>
+interface AppendingState<IN, OUT>
+interface MergingState<IN, OUT>
+interface ReducingState<T>
+interface AggregatingState<IN, OUT>
+
+
+State <|-- ValueState
+State <|-- ListState
+State <|-- MapState
+State <|-- AppendingState
+AppendingState <|-- MergingState
+MergingState <|-- ReducingState
+MergingState <|-- AggregatingState
+
+
+@enduml

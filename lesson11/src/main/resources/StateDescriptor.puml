@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract StateDescriptor<S extends State, T>
+class ValueStateDescriptor<T>
+class ListStateDescriptor<T>
+class MapStateDescriptor<UK, UV>
+class ReducingStateDescriptor<T>
+class AggregatingStateDescriptor<IN, ACC, OUT>
+
+StateDescriptor <|-- ValueStateDescriptor
+StateDescriptor <|-- ListStateDescriptor
+StateDescriptor <|-- MapStateDescriptor
+StateDescriptor <|-- ReducingStateDescriptor
+StateDescriptor <|-- AggregatingStateDescriptor
+
+
+
+@enduml
