@@ -16,7 +16,7 @@ public class CheckpointDemo {
         // 1）设置检查点的存储方式和路径
         Configuration config = new Configuration();
         config.set(CheckpointingOptions.CHECKPOINT_STORAGE, "filesystem");// 存储路径是Hadoop的话，需要引入Hadoop依赖
-        config.set(CheckpointingOptions.CHECKPOINTS_DIRECTORY, "file:///home/linmoo/Downloads/flink-1.19.2/checkpoints"); // 这里演示在默认本地存储
+        config.set(CheckpointingOptions.CHECKPOINTS_DIRECTORY, "file:///checkpoints"); // 这里演示在默认本地存储
         // 2）配置保留几份checkpoint
         config.set(CheckpointingOptions.MAX_RETAINED_CHECKPOINTS, 3);
         // 3）创建执行环境
