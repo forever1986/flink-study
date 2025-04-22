@@ -26,7 +26,7 @@ public class FileSinkDemo {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         // 需要设置checkpoint，输出的文件才会进入finished，不然只会存在 in-progress 或者 pending 状态，也就是没法变成.log结尾的文件
         env.enableCheckpointing(20000, CheckpointingMode.EXACTLY_ONCE);
-        env.setParallelism(2);
+        env.setParallelism(1);
         // 2 读取数据- 来自自定义的GeneratorFunction，我们这里设置每秒生成100个字符串
         DataGeneratorSource<String> dataGeneratorSource = new DataGeneratorSource<>(
                 (GeneratorFunction<Long, String>) value -> "value" + value,
